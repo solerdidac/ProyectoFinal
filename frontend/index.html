@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Gimnasio ETP Xavier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Overlay para oscurecer el fondo al abrir el sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Sidebar: Oculto completamente hasta que se active -->
+  <div id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu-category">Administración
+        <ul class="submenu">
+          <li><a href="subscripciones.html">Subscripciones</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="rutinas.html">Rutinas</a></li>
+          <li><a href="nutricion.html">Nutrición</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <button id="menuToggle" class="menu-toggle">Menú</button>
+      <div class="nav-center">
+        <div class="logo">Gimnasio ETP Xavier</div>
+      </div>
+      <div class="nav-right">
+        <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Carrusel con 500px de altura -->
+    <section id="inicio" class="carousel">
+      <!-- Slide 1 -->
+      <div class="slide active" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
+        <div class="slide-content">
+          <h2>Servicio 1</h2>
+          <p>Descripción breve del servicio 1.</p>
+          <a href="servicios/servicio1.html" class="btn">Más información</a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
+        <div class="slide-content">
+          <h2>Servicio 2</h2>
+          <p>Descripción breve del servicio 2.</p>
+          <a href="servicios/servicio2.html" class="btn">Más información</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
+        <div class="slide-content">
+          <h2>Servicio 3</h2>
+          <p>Descripción breve del servicio 3.</p>
+          <a href="servicios/servicio3.html" class="btn">Más información</a>
+        </div>
+      </div>
+      <!-- Controles del carrusel -->
+      <div class="carousel-controls">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Secciones adicionales -->
+    <section id="servicios" class="row">
+      <h2>Servicios Destacados</h2>
+      <p>Aquí encontrarás nuestros planes, productos y programas especializados.</p>
+    </section>
+
+    <section id="contacto" class="row">
+      <h2>Contacto</h2>
+      <p>Ponte en contacto con nosotros para más información y asesoría personalizada.</p>
+    </section>
+  </main>
+
+  <!-- Footer eliminado según lo solicitado -->
+
+  <script src="script.js"></script>
+</body>
+</html>

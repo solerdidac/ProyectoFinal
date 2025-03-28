@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autenticación - Gimnasio ETP Xavier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-btn">&larr;</button>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu-category">Administración
+        <ul class="submenu">
+          <li><a href="subscripciones.html">Subscripciones</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="rutinas.html">Rutinas</a></li>
+          <li><a href="nutricion.html">Nutrición</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <button id="menuToggle" class="menu-toggle">&rarr;</button>
+      <div class="nav-center">
+        <div class="logo">Gimnasio ETP Xavier</div>
+      </div>
+      <div class="nav-right"></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="row">
+      <h2>Autenticación</h2>
+      <div class="auth-container">
+        <!-- Formulario de Iniciar Sesión -->
+        <div class="auth-form">
+          <h3>Iniciar Sesión</h3>
+          <form id="loginForm">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Ingresar</button>
+          </form>
+        </div>
+        <!-- Formulario de Registro -->
+        <div class="auth-form">
+          <h3>Registrarse</h3>
+          <form id="registerForm">
+            <input type="text" name="name" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <select name="level" required>
+              <option value="basico">Básico</option>
+              <option value="intermedio">Intermedio</option>
+              <option value="experto">Experto</option>
+            </select>
+            <button type="submit" class="btn">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const API = 'http://localhost:5000/api';
+
+    // Manejo del formulario de Iniciar Sesión
+    document.getElementById('loginForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
+      try {
+        const res = await fetch(`${API}/users?email=${data.email}`);
+        const users = await res.json();
+        if (users.length === 0) {
+          alert('El usuario no existe, por favor regístrate.');
+        } else {
+          const user = users.find(u => u.email === data.email && u.password === data.password);
+          if (user) {
+            alert('Bienvenido ' + user.name);
+            window.location.href = 'index.html';
+          } else {
+            alert('Credenciales incorrectas.');
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Error al iniciar sesión.');
+      }
+    };
+
+    // Manejo del formulario de Registro
+    document.getElementById('registerForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
+      try {
+        const res = await fetch(`${API}/users`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const newUser = await res.json();
+        alert('Usuario registrado. Bienvenido ' + newUser.name);
+        window.location.href = 'index.html';
+      } catch (error) {
+        console.error(error);
+        alert('Error al registrarse.');
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
