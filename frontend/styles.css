@@ -1,62 +1,87 @@
-/* Reset global para quitar márgenes y relleno */
-html, body {
+/* Reseteo básico */
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  box-sizing: border-box;
 }
 
-/* Navbar negra semitransparente */
+/* Fuente base y colores generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #111; /* Fondo oscuro para el resto de la página */
+  color: #fff;
+}
+
+/* ENCABEZADO - Navbar transparente */
+header {
+  position: absolute;    /* Se coloca sobre el hero */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;          /* Asegura que quede por encima del video */
+  background: transparent !important; /* Forzamos transparencia */
+  padding: 20px 40px;
+}
+
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 70px;
-  padding: 0 1em;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  justify-content: space-between;
+  background: transparent; /* Por si hubiera otra regla asignando color */
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
   color: #fff;
-  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f9c74f;
+}
+
+/* Menú hamburguesa oculto por defecto en escritorio */
+.hamburger {
+  display: none;
+  flex-direction: column;
   cursor: pointer;
 }
 
-.nav-center {
-  flex: 1;
-  text-align: center;
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px;
 }
 
-.nav-right {
-  text-align: right;
-}
-
-/* Botón para iniciar sesión */
-.btn.auth-btn {
-  background-color: #ff5722;
-  color: #fff;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.btn.auth-btn:hover {
-  background-color: #e64a19;
-}
-
-/* Carrusel con video de fondo */
-.carousel {
+/* SECCIÓN HERO CON VIDEO DE FONDO OSCURECIDO - 100vh para pantalla completa */
+.hero {
   position: relative;
-  width: 100%;
-  height: 500px;
+  height: 100vh; 
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #000; /* Fallback si el video no carga */
+  margin-top: 0;          /* Para que el video inicie en la parte superior */
 }
 
-.carousel-video {
+.hero-video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,75 +90,170 @@ html, body {
   width: auto;
   height: auto;
   transform: translate(-50%, -50%);
+  object-fit: cover;
   z-index: 1;
   filter: brightness(0.7);
 }
 
-.carousel-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% opacidad */
+  z-index: 2;
 }
 
-/* Slide content */
-.slide-content {
-  display: none;
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #fff;
+  padding: 0 20px;
 }
 
-.slide-content h2 {
-  font-size: 2em;
-  margin: 0.5em 0;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
-.slide-content p {
-  font-size: 1.2em;
-  margin: 0.5em 0 1em;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 /* Botones generales */
 .btn {
   display: inline-block;
-  background-color: #ff5722;
-  color: #fff;
-  padding: 0.5em 1em;
+  background-color: #f9c74f;
+  color: #000;
+  padding: 12px 24px;
   text-decoration: none;
+  font-weight: bold;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #e64a19;
+  background-color: #ffa500;
 }
 
-/* Controles del carrusel */
-.carousel-controls {
-  position: absolute;
-  z-index: 3;
-  width: calc(100% - 2em);
-  top: 50%;
-  transform: translateY(-50%);
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #f9c74f;
+  color: #f9c74f;
+}
+
+.btn-secondary:hover {
+  background-color: #f9c74f;
+  color: #000;
+}
+
+/* SECCIÓN WHY CHOOSE US */
+.features {
+  padding: 60px 20px;
+  background-color: #111;
+}
+
+.features-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.features-inner h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.cards {
   display: flex;
-  justify-content: space-between;
-  pointer-events: none;
-  margin: 0 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-.carousel-controls button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  cursor: pointer;
-  padding: 0 0.5em;
-  transition: color 0.3s;
-  pointer-events: auto;
+.card {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 300px;
+  max-width: 300px;
+  text-align: center;
 }
 
-.carousel-controls button:hover {
-  color: #ff5722;
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin-bottom: 20px;
+}
+
+.btn-small {
+  padding: 8px 16px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* MEDIA QUERIES / RESPONSIVE */
+@media (max-width: 768px) {
+  /* Menú hamburguesa en pantallas pequeñas */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;  /* Ajusta según la altura del header */
+    right: 40px;
+    background-color: #000;
+    padding: 20px;
+    border: 1px solid #444;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }

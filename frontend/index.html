@@ -1,93 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio - Gimnasio ETP Xavier</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="description" content="Página de gimnasio - GWMTEAM" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GWMTEAM - Work with Professionals</title>
+  <!-- Fuente de Google (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Hoja de estilo -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Encabezado / Navegación -->
   <header>
     <nav class="navbar">
-      <button id="menuToggle" class="menu-toggle">Menú</button>
-      <div class="nav-center">
-        <div class="logo">Gimnasio ETP Xavier</div>
-      </div>
-      <div class="nav-right">
-        <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
+      <div class="logo">GWMTEAM</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- "Shop" apunta a la página de Tienda dentro de "servicios" -->
+        <li><a href="servicios/tienda.html">Shop</a></li>
+        <!-- Puedes cambiar "Blog" y "Contact" si ya tienes esos archivos o dejar "#" -->
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Ícono menú hamburguesa (para responsive) -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </nav>
   </header>
-  
-  <!-- Carrusel con video de fondo -->
-  <section id="inicio" class="carousel">
+
+  <!-- Sección Hero -->
+  <!-- SECCIÓN HERO CON VIDEO DE FONDO OSCURECIDO -->
+  <section class="hero">
     <!-- Video de fondo -->
-    <video class="carousel-video" autoplay loop muted playsinline>
+    <video class="hero-video" autoplay loop muted playsinline>
       <source src="https://synergym.es/wp-content/uploads/2023/03/Video-Mix-Home-SYNERGYM-1-1.mp4" type="video/mp4">
       Tu navegador no soporta el elemento video.
     </video>
     
-    <!-- Contenido del carrusel -->
-    <div class="carousel-content">
-      <!-- Se muestran uno a la vez; se alternarán con el JS -->
-      <div class="slide-content">
-        <h2>Tienda</h2>
-        <p>Explora nuestros productos y suplementos</p>
-        <a href="servicios/tienda.html" class="btn">Ver Tienda</a>
-      </div>
-      <div class="slide-content">
-        <h2>Programas</h2>
-        <p>Descubre entrenamientos y planes de nutrición</p>
-        <a href="servicios/programas.html" class="btn">Ver Programas</a>
-      </div>
-      <div class="slide-content">
-        <h2>Subscripciones</h2>
-        <p>Elige tu plan de membresía</p>
-        <a href="servicios/subscripciones.html" class="btn">Ver Subscripciones</a>
-      </div>
-    </div>
+    <!-- Overlay oscuro al 50% -->
+    <div class="hero-overlay"></div>
     
-    <!-- Controles del carrusel -->
-    <div class="carousel-controls">
-      <button id="prevBtn">&#10094;</button>
-      <button id="nextBtn">&#10095;</button>
+    <!-- Contenido sobre el video -->
+    <div class="hero-content">
+      <h1>WORK WITH PROFESSIONALS</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla, elit eget faucibus ornare, ex purus imperdiet quam.
+      </p>
+      <div class="hero-buttons">
+        <a href="servicios/tienda.html" class="btn">Start Now</a>
+        <a href="servicios/programas.html" class="btn btn-secondary">Learn More</a>
+      </div>
     </div>
   </section>
-  
-  <!-- Script para controlar el carrusel -->
-  <script>
-    // Selecciona todos los slides
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-content .slide-content');
-    const totalSlides = slides.length;
-    
-    // Función para mostrar el slide actual y ocultar los demás
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.display = (i === index) ? 'block' : 'none';
-      });
-    }
-    
-    // Inicializa mostrando el primer slide
-    showSlide(currentSlide);
-    
-    // Botones de control
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    });
-    
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      showSlide(currentSlide);
-    });
-    
-    // Cambio automático (opcional)
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }, 7000);
-  </script>
+
+
+  <!-- Sección "Why Choose Us" -->
+  <section class="features">
+    <div class="features-inner">
+      <h2>Why Choose Us</h2>
+      <div class="cards">
+        <!-- Tarjeta 1 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300" alt="Muscles Building" />
+          <h3>Muscles Building</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacinia
+            velit non libero ullamcorper pretium.
+          </p>
+          <a href="#" class="btn btn-small">Learn More</a>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300" alt="Muscles Building" />
+          <h3>Muscles Building</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacinia
+            velit non libero ullamcorper pretium.
+          </p>
+          <a href="#" class="btn btn-small">Learn More</a>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="card">
+          <img src="https://via.placeholder.com/300" alt="Muscles Building" />
+          <h3>Muscles Building</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacinia
+            velit non libero ullamcorper pretium.
+          </p>
+          <a href="#" class="btn btn-small">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 GWMTEAM. All rights reserved.</p>
+  </footer>
+
+  <!-- Script para el menú responsive -->
+  <script src="script.js"></script>
 </body>
 </html>

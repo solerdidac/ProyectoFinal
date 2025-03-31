@@ -1,12 +1,13 @@
 /* servicios.css */
 
-/* Fondo para las páginas de servicios */
+/* Fondo general para las páginas de servicios */
 .servicios-background {
     background: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh;
     color: #333;
+    font-family: 'Roboto', sans-serif;
   }
   
   /* Overlay degradado para mejorar la legibilidad */
@@ -15,13 +16,13 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
     z-index: 0;
   }
   
-  /* Garantiza que el contenido se posicione sobre el overlay */
+  /* Aseguramos que el contenido se sitúe sobre el overlay */
   .servicios-background > * {
     position: relative;
     z-index: 1;
@@ -30,49 +31,48 @@
   /* Encabezado de la página de servicios */
   .service-header {
     background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
+    padding: 2rem 1rem;
     text-align: center;
-    border-bottom: 2px solid #ff5722;
-    margin-bottom: 2rem;
+    border-bottom: 3px solid #ff5722;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     animation: fadeIn 1s ease-out;
   }
   
   .service-header h2 {
-    margin: 0;
     font-size: 2.5rem;
+    margin: 0;
     color: #333;
-    font-weight: bold;
+    letter-spacing: 1px;
   }
   
   /* Contenedor principal de contenido */
   .service-content {
-    width: 90%;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 2rem auto;
     background: rgba(255, 255, 255, 0.98);
-    padding: 2rem 3rem;
+    padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     animation: slideUp 1s ease-out;
   }
   
-  /* Estilo para párrafos */
+  /* Estilo para párrafos y textos */
   .service-content p {
     font-size: 1.2rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: #444;
     margin-bottom: 1.5rem;
   }
   
-  /* Botones: estilo moderno y animación en hover */
+  /* Botones para llamadas a la acción en servicios */
   .service-content .btn {
     display: inline-block;
     background-color: #ff5722;
     color: #fff;
     padding: 0.75rem 1.5rem;
-    font-size: 1.1rem;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.1rem;
     transition: background-color 0.3s, transform 0.3s;
     margin: 0.5rem;
   }
@@ -82,17 +82,17 @@
     transform: translateY(-3px);
   }
   
-  /* Sección de subcategorías */
+  /* Sección de subcategorías (si se utiliza) */
   .subcategories {
-    margin-top: 2rem;
     text-align: center;
+    margin-top: 2rem;
   }
   
   .subcategories .btn {
     margin: 0.5rem;
   }
   
-  /* Animaciones */
+  /* Animaciones para mayor dinamismo */
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -103,13 +103,17 @@
     to { opacity: 1; transform: translateY(0); }
   }
   
-  /* Responsividad */
+  /* Responsividad: ajustes para dispositivos móviles */
   @media (max-width: 768px) {
-    .service-content {
-      padding: 1.5rem;
+    .service-header {
+      padding: 1.5rem 1rem;
     }
     .service-header h2 {
       font-size: 2rem;
+    }
+    .service-content {
+      padding: 1.5rem;
+      margin: 1rem;
     }
     .service-content p {
       font-size: 1rem;
