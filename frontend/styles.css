@@ -1,0 +1,180 @@
+/* Reset global para quitar márgenes y relleno */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  /* Navbar negra semitransparente */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; /* Altura mayor */
+    padding: 0 1em;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+  
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .nav-center {
+    flex: 1;
+    text-align: center;
+  }
+  .nav-right {
+    text-align: right;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding: 1em;
+    z-index: 1001;
+    border-right: 1px solid #ccc;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  .sidebar ul li .submenu {
+    list-style: none;
+    padding-left: 15px;
+    display: none;
+  }
+  .sidebar ul li.menu-category:hover .submenu {
+    display: block;
+  }
+  .sidebar-footer {
+    margin-top: 1em;
+    text-align: center;
+  }
+  
+  /* Overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: none;
+  }
+  .sidebar-overlay.open {
+    display: block;
+  }
+  
+  /* Carrusel a 100% de ancho, 500px de altura */
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;  /* Ajustado para ser menos alto */
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+  .slide-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+  }
+  .slide-content h2 {
+    margin: 0;
+    font-size: 2em;
+    letter-spacing: 1px;
+  }
+  .slide-content p {
+    margin: 0.5em 0;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #ff5722;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Ajustes para que la flecha derecha aparezca bien */
+  .carousel-controls {
+    position: absolute;
+    z-index: 2;       /* Encima de la imagen */
+    width: calc(100% - 2em); /* Quita un poco de ancho para que no se salga */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* Para que el click pase a los botones */
+    margin: 0 1em;
+  }
+  .carousel-controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 0 0.5em; /* Añadimos un poco de padding horizontal */
+    transition: color 0.3s;
+    pointer-events: auto; /* Para que sean clicables */
+  }
+  .carousel-controls button:hover {
+    color: #ff5722;
+  }
+  
+  /* Secciones (row) */
+  .row {
+    width: 90%;
+    margin: 2em auto;
+    background-color: #fff;
+    padding: 2em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  
