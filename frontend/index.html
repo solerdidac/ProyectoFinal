@@ -10,17 +10,25 @@
   <!-- Overlay para oscurecer el fondo al abrir el sidebar -->
   <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-  <!-- Sidebar: Oculto completamente hasta que se active -->
+  <!-- Sidebar: Oculto hasta que se active -->
   <div id="sidebar" class="sidebar">
     <ul>
       <li><a href="index.html">Inicio</a></li>
-      <li class="menu-category">Menu
+      <li class="menu-category">Tienda
         <ul class="submenu">
-          <li><a href="subscripciones.html">Subscripciones</a></li>
           <li><a href="productos.html">Productos</a></li>
           <li><a href="suplementos.html">Suplementos</a></li>
+        </ul>
+      </li>
+      <li class="menu-category">Programas
+        <ul class="submenu">
           <li><a href="rutinas.html">Rutinas</a></li>
           <li><a href="nutricion.html">Nutrición</a></li>
+        </ul>
+      </li>
+      <li class="menu-category">Subscripciones
+        <ul class="submenu">
+          <li><a href="subscripciones.html">Membresías</a></li>
         </ul>
       </li>
     </ul>
@@ -28,6 +36,7 @@
       <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
     </div>
   </div>
+
 
   <!-- Navbar -->
   <header>
@@ -43,39 +52,38 @@
   </header>
 
   <main>
-    <!-- Carrusel con 500px de altura -->
-    <section id="inicio" class="carousel">
-      <!-- Slide 1 -->
-      <div class="slide active" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
-        <div class="slide-content">
-          <h2>Servicio 1</h2>
-          <p>Descripción breve del servicio 1.</p>
-          <a href="servicios/servicio1.html" class="btn">Más información</a>
-        </div>
+    <!-- Carrusel actualizado con categorías -->
+  <section id="inicio" class="carousel">
+    <!-- Slide 1: Tienda -->
+    <div class="slide active" style="background-image: url('https://example.com/tienda-image.jpg');">
+      <div class="slide-content">
+        <h2>Tienda</h2>
+        <p>Explora nuestros productos y suplementos</p>
+        <a href="servicios/tienda.html" class="btn">Ver Tienda</a>
       </div>
-      <!-- Slide 2 -->
-      <div class="slide" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
-        <div class="slide-content">
-          <h2>Servicio 2</h2>
-          <p>Descripción breve del servicio 2.</p>
-          <a href="servicios/servicio2.html" class="btn">Más información</a>
-        </div>
+    </div>
+    <!-- Slide 2: Programas -->
+    <div class="slide" style="background-image: url('https://example.com/programas-image.jpg');">
+      <div class="slide-content">
+        <h2>Programas</h2>
+        <p>Descubre entrenamientos y planes de nutrición</p>
+        <a href="servicios/progrmas.html" class="btn">Ver Programas</a>
       </div>
-      <!-- Slide 3 -->
-      <div class="slide" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/maquinas-1627992400.jpg');">
-        <div class="slide-content">
-          <h2>Servicio 3</h2>
-          <p>Descripción breve del servicio 3.</p>
-          <a href="servicios/servicio3.html" class="btn">Más información</a>
-        </div>
+    </div>
+    <!-- Slide 3: Subscripciones -->
+    <div class="slide" style="background-image: url('https://example.com/subscripciones-image.jpg');">
+      <div class="slide-content">
+        <h2>Subscripciones</h2>
+        <p>Elige tu plan de membresía</p>
+        <a href="servicios/subscripciones.html" class="btn">Ver Subscripciones</a>
       </div>
-      <!-- Controles del carrusel -->
-      <div class="carousel-controls">
-        <button id="prevBtn">&#10094;</button>
-        <button id="nextBtn">&#10095;</button>
-      </div>
-    </section>
-
+    </div>
+    <!-- Controles del carrusel -->
+    <div class="carousel-controls">
+      <button id="prevBtn">&#10094;</button>
+      <button id="nextBtn">&#10095;</button>
+    </div>
+  </section>
     <!-- Secciones adicionales -->
     <section id="servicios" class="row">
       <h2>Servicios Destacados</h2>
