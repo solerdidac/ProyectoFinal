@@ -2,42 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio - Gimnasio ETP Xavier</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Overlay para oscurecer el fondo al abrir el sidebar -->
-  <div id="sidebar-overlay" class="sidebar-overlay"></div>
-
-  <!-- Sidebar: Oculto hasta que se active -->
-  <div id="sidebar" class="sidebar">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li class="menu-category">Tienda
-        <ul class="submenu">
-          <li><a href="productos.html">Productos</a></li>
-          <li><a href="suplementos.html">Suplementos</a></li>
-        </ul>
-      </li>
-      <li class="menu-category">Programas
-        <ul class="submenu">
-          <li><a href="rutinas.html">Rutinas</a></li>
-          <li><a href="nutricion.html">Nutrición</a></li>
-        </ul>
-      </li>
-      <li class="menu-category">Subscripciones
-        <ul class="submenu">
-          <li><a href="subscripciones.html">Membresías</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div class="sidebar-footer">
-      <a href="auth.html" class="btn auth-btn">Iniciar Sesión</a>
-    </div>
-  </div>
-
-
   <!-- Navbar -->
   <header>
     <nav class="navbar">
@@ -50,54 +19,75 @@
       </div>
     </nav>
   </header>
-
-  <main>
-    <!-- Carrusel actualizado con categorías -->
+  
+  <!-- Carrusel con video de fondo -->
   <section id="inicio" class="carousel">
-    <!-- Slide 1: Tienda -->
-    <div class="slide active" style="background-image: url('https://example.com/tienda-image.jpg');">
+    <!-- Video de fondo -->
+    <video class="carousel-video" autoplay loop muted playsinline>
+      <source src="https://synergym.es/wp-content/uploads/2023/03/Video-Mix-Home-SYNERGYM-1-1.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento video.
+    </video>
+    
+    <!-- Contenido del carrusel -->
+    <div class="carousel-content">
+      <!-- Se muestran uno a la vez; se alternarán con el JS -->
       <div class="slide-content">
         <h2>Tienda</h2>
         <p>Explora nuestros productos y suplementos</p>
         <a href="servicios/tienda.html" class="btn">Ver Tienda</a>
       </div>
-    </div>
-    <!-- Slide 2: Programas -->
-    <div class="slide" style="background-image: url('https://example.com/programas-image.jpg');">
       <div class="slide-content">
         <h2>Programas</h2>
         <p>Descubre entrenamientos y planes de nutrición</p>
-        <a href="servicios/progrmas.html" class="btn">Ver Programas</a>
+        <a href="servicios/programas.html" class="btn">Ver Programas</a>
       </div>
-    </div>
-    <!-- Slide 3: Subscripciones -->
-    <div class="slide" style="background-image: url('https://example.com/subscripciones-image.jpg');">
       <div class="slide-content">
         <h2>Subscripciones</h2>
         <p>Elige tu plan de membresía</p>
         <a href="servicios/subscripciones.html" class="btn">Ver Subscripciones</a>
       </div>
     </div>
+    
     <!-- Controles del carrusel -->
     <div class="carousel-controls">
       <button id="prevBtn">&#10094;</button>
       <button id="nextBtn">&#10095;</button>
     </div>
   </section>
-    <!-- Secciones adicionales -->
-    <section id="servicios" class="row">
-      <h2>Servicios Destacados</h2>
-      <p>Aquí encontrarás nuestros planes, productos y programas especializados.</p>
-    </section>
-
-    <section id="contacto" class="row">
-      <h2>Contacto</h2>
-      <p>Ponte en contacto con nosotros para más información y asesoría personalizada.</p>
-    </section>
-  </main>
-
-  <!-- Footer eliminado según lo solicitado -->
-
-  <script src="script.js"></script>
+  
+  <!-- Script para controlar el carrusel -->
+  <script>
+    // Selecciona todos los slides
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-content .slide-content');
+    const totalSlides = slides.length;
+    
+    // Función para mostrar el slide actual y ocultar los demás
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+      });
+    }
+    
+    // Inicializa mostrando el primer slide
+    showSlide(currentSlide);
+    
+    // Botones de control
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    });
+    
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    });
+    
+    // Cambio automático (opcional)
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 7000);
+  </script>
 </body>
 </html>
